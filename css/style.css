@@ -1,9 +1,4 @@
 /* ---------------------------
-        COLLEGAMENTI
---------------------------- */
-@import url('./utility.css');
-
-/* ---------------------------
             RESET
 --------------------------- */
 * {
@@ -16,15 +11,89 @@
 body {font-family: 'Rubik', sans-serif;}
 
 /* ---------------------------
+          LAYOUT
+--------------------------- */
+.container-full {width: 100vw;}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1.5625rem;
+    gap: 4.0625rem; 
+    height: calc(100vh - 8.125rem);
+    align-items: center;
+}
+
+/* ---------------------------
           STYLE
 --------------------------- */
+/* HEADER */
+.logo {
+    background-color: #fff;
+    height: 4.375rem;
+    padding: 1.25rem;
+    line-height: 1;
+    color: #2ab1de;
+    font-size: 2.375rem;
+    font-weight: 900;
+}
 
+.menu {
+    background-color: #2ab1de;
+    height: 3.75rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.menu h4 {
+    color: #fff;
+    margin-right: .9375rem;
+    text-transform: uppercase;
+}
 
+.menu select {
+    padding: .3125rem;
+    background-color: #fff;
+    border: none;
+    border-radius: .3125rem;
+    width: 6.25rem;
+}
 
+/* /HEADER */
 
+/* MAIN */
+.container-full {background-color: #dedede;}
 
+/* .row {
+    padding: 1.5625rem;
+    gap: 4.0625rem; 
+    height: calc(100vh - 8.125rem);
+    align-items: center;
+} */
 
+.cards {
+    height: 100px;
+    padding: .9375rem;
+    text-align: center;
+    background-color: #fff;
+    width: calc(100% / 5 - (4.0625rem * 4 / 5));
+    border-radius: .625rem;
+    box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cards i {
+    display: block;
+    font-size: 2.1875rem;
+    margin-bottom: .3125rem;
+}
+
+.cards span {
+    font-size: .9375rem;
+   text-transform: uppercase; 
+}
+
+/* /MAIN */
 
 /* ---------------------------
             FINE
