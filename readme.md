@@ -26,11 +26,30 @@ Partendo dalla struttura dati fornita, visualizzare in pagina un box per ogni ic
 Ciascuna icona ha una proprietà "color": utilizzare questa proprietà per visualizzare le icone del colore corrispondente.
 
 #### Milestone 3
-Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone `animal, vegetable, user`.
+Aggiungere alla pagina una select in cui le options corrispondono ai vari tipi di icone: `animal, vegetable, user`.
 - Quando l'utente seleziona un tipo dalla select, visualizzare solamente le icone corrispondenti.
 
 #### BONUS
 popolare le options della select della milestone 3 dinamicamente.
 
 ## Svolgimento:
-1. 
+1. definisco un array d'oggetti con gli elementi assegnati;
+
+2. vado in lettura del DOM;
+
+3. con istruzione di iterazione ciclo, tramite il `forEach`, l'array per adare a costruire tutti gli elementi;
+
+4. creo contenitore `div` assegnandogli la classe `cards`, creo l'elemento `i` e gli assegno la clesse di **font awesome** per mezzo del teplate literal, gli assegno uno stile che tramite interpolazione assegnerà il colore:
+```
+const italic = document.createElement('i');
+italic.className = `${element.family} ${element.prefix}${element.name}`;
+italic.style = `color: ${element.color}`;
+```
+Appendo tutto sull'elemento `rowItems`;
+
+5. creo l'elemento `span` per poi assegnargli, tramite interpolazione il valore nome dell'elemento, per poi appenderlo su l'elemento `rowItems`:
+```
+const text = document.createElement('span');
+text.textContent = `${element.name}`;
+```
+6. 

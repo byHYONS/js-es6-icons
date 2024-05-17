@@ -124,7 +124,7 @@ const icons = [
 // vado in lettura del DOM:
 const filtroNome = document.getElementById('typology');
 const rowItem = document.querySelector('.row');
-
+console.log(filtroNome);
 /* *****************************
             CREO ELEMENTI
 ***************************** */
@@ -137,10 +137,10 @@ icons.forEach((element, idx) => {
     
     const italic = document.createElement('i');
     italic.className = `${element.family} ${element.prefix}${element.name}`;
-    italic.style = `color: ${element.color}`
+    italic.style = `color: ${element.color}`;
 
     const text = document.createElement('span');
-    text.textContent = `${element.name}`
+    text.textContent = `${element.name}`;
     
     div.append(italic);
     div.append(text);
@@ -150,6 +150,22 @@ icons.forEach((element, idx) => {
 /* *****************************
          LOGICA SELECT
 ***************************** */
+
+let tipologiaUniche = new Set();
+
+icons.forEach(element => tipologiaUniche.add(element.type));
+console.log(tipologiaUniche);
+
+tipologiaUniche.forEach(element => {
+    console.log(element);
+    const option = document.createElement('option');
+    option.value = `${element}`;
+    option.textContent = `${element}`
+    option.style = 'textTransform: capitalize';
+
+    filtroNome.append(option);
+
+})
 
 
 

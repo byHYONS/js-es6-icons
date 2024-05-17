@@ -60,17 +60,12 @@ body {font-family: 'Rubik', sans-serif;}
     width: 6.25rem;
 }
 
+/* option {text-transform: capitalize;} */
+
 /* /HEADER */
 
 /* MAIN */
 .container-full {background-color: #dedede;}
-
-/* .row {
-    padding: 1.5625rem;
-    gap: 4.0625rem; 
-    height: calc(100vh - 8.125rem);
-    align-items: center;
-} */
 
 .cards {
     height: 100px;
@@ -90,7 +85,7 @@ body {font-family: 'Rubik', sans-serif;}
 
 .cards span {
     font-size: .9375rem;
-   text-transform: uppercase; 
+    text-transform: uppercase;
 }
 
 /* /MAIN */
