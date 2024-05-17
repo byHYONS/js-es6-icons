@@ -113,25 +113,43 @@ const icons = [
 		color: 'blue'
 	},
 	{
-		name: 'user-secret',
+		name: 'user-secret', 
 		prefix: 'fa-',
-		type: 'user',
+		type: 'user',  // per selezione
 		family: 'fas',
-		color: 'blue'
+		color: 'blue'  // per il colore
 	}
 ];
 
-
-
+// vado in lettura del DOM:
+const filtroNome = document.getElementById('typology');
+const rowItem = document.querySelector('.row');
 
 /* *****************************
-            ???
+            CREO ELEMENTI
 ***************************** */
-console.log('CIAO!!!');
 
+// ciclo con il metodo forEach per costruire gli elementi:
+icons.forEach((element, idx) => {
+    console.log(element);
+    const div = document.createElement('div');
+    div.className = 'cards';
+    
+    const italic = document.createElement('i');
+    italic.className = `${element.family} ${element.prefix}${element.name}`;
+    italic.style = `color: ${element.color}`
 
+    const text = document.createElement('span');
+    text.textContent = `${element.name}`
+    
+    div.append(italic);
+    div.append(text);
+    rowItem.append(div);
+});
 
-
+/* *****************************
+         LOGICA SELECT
+***************************** */
 
 
 
