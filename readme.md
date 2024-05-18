@@ -1,6 +1,6 @@
 # ESERCIZIO: Icons
 
-> [! NOTE]
+> [!NOTE]
 >
 > cartella/repo:  js-es6-icons
 
