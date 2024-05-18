@@ -124,60 +124,86 @@ const icons = [
 // vado in lettura del DOM:
 const filtroNome = document.getElementById('typology');
 const rowItem = document.querySelector('.row');
-console.log(filtroNome);
+// console.log(filtroNome);
+
 /* *****************************
-            CREO ELEMENTI
+        INIZIALIZZO PAGINA
 ***************************** */
 
-// ciclo con il metodo forEach per costruire gli elementi:
-icons.forEach((element, idx) => {
-    console.log(element);
-    const div = document.createElement('div');
-    div.className = 'cards';
-    
-    const italic = document.createElement('i');
-    italic.className = `${element.family} ${element.prefix}${element.name}`;
-    italic.style = `color: ${element.color}`;
+creaElemento(icons);
 
-    const text = document.createElement('span');
-    text.textContent = `${element.name}`;
-    
-    div.append(italic);
-    div.append(text);
-    rowItem.append(div);
+// IN BASE ALLA SELEZIONE COSTRUISCO LA PAGINA:
+// vado in ascolto sul selettore:
+filtroNome.addEventListener('click', (e) => {
+	console.log(e.target.value);
+	const selezione = e.target.value;
+	let tipologia = [];
+	rowItem.innerHTML = '';
+	
+	icons.forEach(element => {
+		if (selezione === element.type && selezione !== 'all') {
+			return tipologia.push(element);						
+		} else if (selezione === 'all') {
+			return tipologia = icons;
+		}
+	});
+	creaElemento(tipologia);
+	
 });
 
 /* *****************************
          LOGICA SELECT
 ***************************** */
 
+// CERCO LE TYPE UNICHE:
 let tipologiaUniche = new Set();
-
 icons.forEach(element => tipologiaUniche.add(element.type));
-console.log(tipologiaUniche);
+// console.log(tipologiaUniche);
+creoSelezione(tipologiaUniche);
 
-tipologiaUniche.forEach(element => {
-    console.log(element);
-    const option = document.createElement('option');
-    option.value = `${element}`;
-    option.textContent = `${element}`
-    option.style = 'textTransform: capitalize';
+/* *****************************
+            FUNZIONI
+***************************** */
 
-    filtroNome.append(option);
+// DEFINISCO FUNZIONE PER CREARE GLI ELEMENTI:
+function creaElemento(type) {
+	// ciclo con il metodo forEach per costruire gli elementi:
+	type.forEach(element => {
+		// console.log(element);
+		const div = document.createElement('div');
+		div.className = 'cards';
+		
+		const italic = document.createElement('i');
+		italic.className = `${element.family} ${element.prefix}${element.name}`;
+		italic.style = `color: ${element.color}`;
 
-})
+		const text = document.createElement('span');
+		text.textContent = `${element.name}`;
+		
+		div.append(italic);
+		div.append(text);
+		rowItem.append(div);
+	});
+};
 
+// DEFINISCO FUNZIONE PER CREARE SELECT:
+function creoSelezione(tipologiaUniche){
+	tipologiaUniche.forEach(element => {
+		// creo le option:
+		const option = document.createElement('option');
+		option.value = `${element}`;
+		option.textContent = primaMaiuscola(element);
 
+		filtroNome.append(option);
 
+	});
+};
 
-
-
-
-
-
-
-
-
+// DEFINISCO FUNZIONE PER CAPITALIZED:
+function primaMaiuscola(element){
+	// trasformo la prima lettera in maiuscola:
+	return element.charAt(0).toUpperCase() + element.slice(1);
+}
 
 /* *****************************
             FINE

@@ -52,4 +52,24 @@ Appendo tutto sull'elemento `rowItems`;
 const text = document.createElement('span');
 text.textContent = `${element.name}`;
 ```
-6. 
+6. tramite `set()` vado a isolarmi le icone per topologie;
+
+7. vado a costruire gli elementi `option` con relativo valore e li appenderò all'elemento `select`:
+```
+const option = document.createElement('option');
+option.value = `${element}`;
+option.textContent = primaMaiuscola(element);
+```
+
+8. vado in ascolto dell' evento `(e)` sull'elemnto padre (event delegation) `select`, tramite istruzione condizionele costruisco la pagina in base alla selezione dell'utente:
+```
+if (selezione === element.type && selezione !== 'all') {
+    return tipologia.push(element);						
+    } else if (selezione === 'all') {
+	return tipologia = icons;
+}
+```
+
+9. faccio refactoring snellendo il codice definendo la funzione per la costruzione degli elemento con `creoElemento()` e la funzione `creoSelezione()` per la costruzione degli elementi `option` per la selezione.
+
+##### FINE
